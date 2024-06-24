@@ -42,12 +42,14 @@ server
   .then(() =>
     app.use(
       "/",
-      cors<cors.CorsRequest>({ origin: ["http://localhost:3000"] }),
+      cors({ origin: ["http://localhost:3000/"] }),
       express.json(),
       expressMiddleware(server)
     )
   )
-  .then(() => httpServer.listen({ port: 4000 }));
+  .then(() => {
+    new Promise<void>((resolve) => httpServer.listen({ port: 4000 }, resolve));
+  });
 
 // Server start v1
 
