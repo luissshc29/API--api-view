@@ -2,7 +2,6 @@
   "name": "api-graphql",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
   "scripts": {
     "dev": "nodemon -r dotenv/config index.ts",
     "build": "prisma generate",
