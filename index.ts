@@ -6,7 +6,7 @@ import { expressMiddleware } from "@apollo/server/express4";
 
 // ApolloServer setup
 import { ApolloServer } from "@apollo/server";
-// import { startStandaloneServer } from "@apollo/server/standalone";
+// import { startStandaloneServer } from ("@apollo/server/standalone"
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
 import { PrismaClient } from "@prisma/client";
