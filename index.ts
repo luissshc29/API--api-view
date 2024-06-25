@@ -5,7 +5,7 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import { expressMiddleware } from "@apollo/server/express4";
 
 // ApolloServer setup
-import { ApolloServer } from "@apollo/server";
+import { ApolloServer } from "apollo-server-micro";
 // import { startStandaloneServer } from ("@apollo/server/standalone"
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
