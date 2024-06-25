@@ -13,7 +13,8 @@ import { PrismaClient } from "@prisma/client";
 import { data } from "./db";
 
 // Prisma Client Setup
-export const prisma = new PrismaClient();
+const prisma = new PrismaClient();
+export default prisma;
 
 // Inserting initial data on the database
 /*
