@@ -5,7 +5,13 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import { expressMiddleware } from "@apollo/server/express4";
 
 // ApolloServer setup
+/* import { ApolloServer } from "apollo-server-micro"; */
 import { ApolloServer } from "@apollo/server";
+<<<<<<< HEAD
+=======
+
+// import { startStandaloneServer } from ("@apollo/server/standalone"
+>>>>>>> 85b23869acb4203d7b3e2e015ba7d966cb19408a
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
 import { PrismaClient } from "@prisma/client";
@@ -35,6 +41,7 @@ const httpServer = http.createServer(app);
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  cache: "bounded",
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
