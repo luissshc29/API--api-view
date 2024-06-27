@@ -47,9 +47,17 @@ server
   .then(() =>
     app.use(
       "/",
-      cors({ origin: ["http://localhost:3000/"] }),
+      cors({ origin: ["http://localhost:3000"] }),
       express.json(),
-      expressMiddleware(server)
+      expressMiddleware(server),
+      function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header(
+          "Access-Control-Allow-Headers",
+          "Origin, X-Requested-With, Content-Type, Accept"
+        );
+        next();
+      }
     )
   )
   .then(() => {
