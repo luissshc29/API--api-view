@@ -1,4 +1,4 @@
-import { prisma } from "../..";
+import { prisma } from "../../utils/PrismaClient";
 
 const userResolvers = {
   Query: {

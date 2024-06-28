@@ -14,10 +14,7 @@ import resolvers from "./resolvers";
 import { PrismaClient } from "@prisma/client";
 
 // Initial data source
-/* import { data } from "./db"; */
-
-// Prisma Client Setup
-export const prisma = new PrismaClient();
+/* import { data } from "./utils/db"; */
 
 // Inserting initial data on the database
 /*
