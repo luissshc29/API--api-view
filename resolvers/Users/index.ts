@@ -117,15 +117,9 @@ const userResolvers = {
       const { lastName, firstName, userName } = data;
       const { id } = filter;
 
-      // Verifies if lastName and/or firstName and/or userName are empty strings
-      if (typeof firstName !== "undefined") {
-        if (!firstName) throw new Error("Missing firstName");
-      }
-      if (typeof lastName !== "undefined") {
-        if (!lastName) throw new Error("Missing lastName");
-      }
-      if (typeof userName !== "undefined") {
-        if (!userName) throw new Error("Missing userName");
+      // Verifies if firstName or lastName or userName were sent and were not empy strings
+      if (!lastName && !firstName && !userName) {
+        throw new Error("You need to send at least one new information");
       }
 
       const newUser = {

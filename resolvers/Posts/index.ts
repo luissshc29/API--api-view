@@ -150,12 +150,9 @@ const postResolvers = {
       const { body, title } = data;
       const { id } = filter;
 
-      // Verifies if body and/or title are empty strings
-      if (typeof title !== "undefined") {
-        if (!title) throw new Error("Missing title");
-      }
-      if (typeof body !== "undefined") {
-        if (!body) throw new Error("Missing body");
+      // Verifies if title or body were sent and were not empy strings
+      if (!title && !body) {
+        throw new Error("You need to send at least one new information");
       }
 
       const newPost = {
