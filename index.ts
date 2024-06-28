@@ -5,13 +5,10 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import { expressMiddleware } from "@apollo/server/express4";
 
 // ApolloServer setup
-/* import { ApolloServer } from "apollo-server-micro"; */
 import { ApolloServer } from "@apollo/server";
 
-// import { startStandaloneServer } from "@apollo/server/standalone"
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
-import { PrismaClient } from "@prisma/client";
 
 // Initial data source
 /* import { data } from "./utils/db"; */
@@ -38,6 +35,7 @@ const server = new ApolloServer({
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
+// Server Start
 server
   .start()
   .then(() =>
@@ -45,17 +43,9 @@ server
       "/",
       cors<cors.CorsRequest>({
         credentials: true,
-        origin: ["http://localhost:3000"],
       }),
       express.json(),
-      expressMiddleware(server),
-      function (req, res, next) {
-        res.header(
-          "Access-Control-Allow-Headers",
-          "Origin, X-Requested-With, Content-Type, Accept"
-        );
-        next();
-      }
+      expressMiddleware(server)
     )
   )
   .then(() => {
