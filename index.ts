@@ -17,8 +17,7 @@ import { PrismaClient } from "@prisma/client";
 /* import { data } from "./db"; */
 
 // Prisma Client Setup
-const prisma = new PrismaClient();
-export default prisma;
+export const prisma = new PrismaClient();
 
 // Inserting initial data on the database
 /*
@@ -54,7 +53,6 @@ server
       express.json(),
       expressMiddleware(server),
       function (req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
         res.header(
           "Access-Control-Allow-Headers",
           "Origin, X-Requested-With, Content-Type, Accept"
