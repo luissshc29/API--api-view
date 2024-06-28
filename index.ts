@@ -8,13 +8,13 @@ import { expressMiddleware } from "@apollo/server/express4";
 /* import { ApolloServer } from "apollo-server-micro"; */
 import { ApolloServer } from "@apollo/server";
 
-// import { startStandaloneServer } from ("@apollo/server/standalone"
+// import { startStandaloneServer } from "@apollo/server/standalone"
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
 import { PrismaClient } from "@prisma/client";
 
-//Initial data source
-import { data } from "./db";
+// Initial data source
+/* import { data } from "./db"; */
 
 // Prisma Client Setup
 const prisma = new PrismaClient();
@@ -47,7 +47,10 @@ server
   .then(() =>
     app.use(
       "/",
-      cors({ origin: ["http://localhost:3000"] }),
+      cors<cors.CorsRequest>({
+        credentials: true,
+        origin: ["http://localhost:3000"],
+      }),
       express.json(),
       expressMiddleware(server),
       function (req, res, next) {
