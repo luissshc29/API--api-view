@@ -10,19 +10,6 @@ import { ApolloServer } from "@apollo/server";
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
 
-// Initial data source
-/* import { data } from "./utils/db"; */
-
-// Inserting initial data on the database
-/*
-prisma.users
-  .createMany({ data: data.users })
-  .then((res) => console.log("Affected " + res + " lines"));
-prisma.posts
-  .createMany({ data: data.posts })
-  .then((res) => console.log("Affected " + res + " lines"));
-*/
-
 // Express and Http Server setup
 const app = express();
 const httpServer = http.createServer(app);
