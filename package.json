@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config index.ts",
     "build": "prisma generate",
-    "postinstall": "prisma generate && prisma migrate resolve --applied 20240624161645_initial_migration"
+    "postinstall": "prisma generate && prisma migrate resolve --applied 20240624161645_init"
   },
   "keywords": [],
   "author": "",
