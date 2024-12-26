@@ -61,7 +61,7 @@ const userResolvers = {
 
         // Gets the last indexRef in the users array;
         const usersArray = await prisma.users.findMany();
-        const lastIndexRef = usersArray.length > 0 ? usersArray[usersArray.length - 1].indexRef : 1;
+        const lastIndexRef = usersArray.length > 0 ? usersArray[usersArray.length - 1].indexRef : 0;
         const newUser = {
           ...data,
           indexRef: lastIndexRef + 1,
