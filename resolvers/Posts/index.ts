@@ -91,7 +91,7 @@ const postResolvers = {
 
         // Gets the last indexRef in the posts array;
         const postsArray = await prisma.posts.findMany();
-        const lastIndexRef = postsArray[postsArray.length - 1].indexRef || 1;
+        const lastIndexRef = postsArray.length > 0 ? postsArray[postsArray.length - 1].indexRef : 1;
         const newPost = {
           ...data,
           indexRef: lastIndexRef + 1,
